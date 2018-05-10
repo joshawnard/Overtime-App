@@ -5,10 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+@user = User.create(
+  first_name: "Jon",
+  last_name: "Snow",
+  email: "test1@test.com",
+  password: "asdfasdf",
+  password_confirmation: "asdfasdf",
+)
+
+puts "1 user created"
+
 100.times do |n|
   Post.create!(
     date: Date.today,
     rationale: "Rationale #{n}",
+    user_id: @user.id,
   )
 end
 
